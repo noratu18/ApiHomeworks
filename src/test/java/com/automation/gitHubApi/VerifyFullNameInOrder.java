@@ -3,6 +3,7 @@ package com.automation.gitHubApi;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class VerifyFullNameInOrder {
     }
 
     @Test
+    @DisplayName("Verify that full name sorted in ascending order")
     public void fullNameInAscendingOrder() {
 
         Response response = given().accept(ContentType.JSON)
@@ -63,6 +65,7 @@ public class VerifyFullNameInOrder {
      */
 
     @Test
+    @DisplayName("Verify that full name sorted in descending order")
     public void fullNameInDescendingOrder(){
 
         Response response = given().accept(ContentType.JSON)
@@ -96,6 +99,7 @@ public class VerifyFullNameInOrder {
      */
 
     @Test
+    @DisplayName("Verify that created_id by default in descending order")
     public void defaultSort(){
         Response response = given().accept(ContentType.JSON)
                 .queryParam("per_page", 100)

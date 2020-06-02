@@ -34,9 +34,10 @@ public class VerifyErrorMessage {
                 .and().queryParam("org", "cucumber")
                 .when().get("/orgs/:org").prettyPeek();
 
+        // 2.Verify status code 415, content type application/json; charset=utf-8
+        // 3.Verify response status line include message Unsupported Media Type
         response.then().assertThat().statusCode(415)
-                .and().assertThat().contentType("application/json; charset=utf-8");
-
+        .and().assertThat().contentType("application/json; charset=utf-8");
         response.then().assertThat().statusLine("HTTP/1.1 415 Unsupported Media Type");
 
 
